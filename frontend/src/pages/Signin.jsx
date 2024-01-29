@@ -17,7 +17,7 @@ export function Signin(){
             <div className='flex flex-col justify-center'>
                 <div className="bg-white rounded-lg w-80 text-center p-2 h-max px-4">
                 <Heading label={"Sign In"} />
-                <SubHeading label={"Enter your infromation to create an account"} />
+                <SubHeading label={"Enter your infromation to signin"} />
                 <InputBox onChange={(e)=>setFirstName(e.target.value)} placeholder="John" label={"First Name"} />
                 <InputBox onChange={(e)=>setLastName(e.target.value)} placeholder="Doe" label={"Last Name"} />
                 <InputBox onChange={(e)=>setUsername(e.target.value)} placeholder="sample@gmail.com" label={"Email"} />
