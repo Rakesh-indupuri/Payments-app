@@ -9,7 +9,11 @@ app.use(cors({
     methods:["POST","GET","PUT"],
     credentials:true
   }));
-  
+app.options('/api/v1/user/signin', (req, res) => {
+    res.header('Access-Control-Allow-Origin', 'https://payments-app-lovat.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'POST, GET, PUT');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.status(200).end();
+});
 app.use("/api/v1/",mainRouter)
-
 app.listen(3000)
