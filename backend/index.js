@@ -5,7 +5,7 @@ const mainRouter=require("./routes/index")
 app.use(express.json())
 // app.use(cors())
 app.use(cors({
-    origin: ["https://payments-app-lovat.vercel.app/"],
+    origin: ["https://payments-app-lovat.vercel.app"],
     methods:["POST","GET","PUT"],
     credentials:true
   }));
