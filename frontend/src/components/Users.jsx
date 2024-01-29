@@ -11,7 +11,7 @@ export const Users = () => {
         const fetchData = async () => {
           try {
             const response = await axios.get(
-              `http://localhost:3000/api/v1/user/bulk?filter=${filter}`,
+              `https://payments-app-api-two.vercel.app/api/v1/user/bulk?filter=${filter}`,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
