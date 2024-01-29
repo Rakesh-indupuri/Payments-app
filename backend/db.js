@@ -1,5 +1,6 @@
 const mongoose=require("mongoose");
-mongoose.connect("mongodb+srv://admin:9014093842@cluster0.fiubyou.mongodb.net/payments")
+const url=process.env.url
+mongoose.connect(url)
 const userSchema=mongoose.Schema({
     username:String,
     firstName:String,

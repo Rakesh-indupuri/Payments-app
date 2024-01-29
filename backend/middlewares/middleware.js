@@ -1,4 +1,4 @@
-const JWT_KEY = require("./config")
+const JWT_KEY=process.env.JWT_KEY
 const jwt=require("jsonwebtoken")
 function authMiddleware(req,res,next){
     const auth_header=req.headers.authorization
