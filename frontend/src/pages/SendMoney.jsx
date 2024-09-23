@@ -40,7 +40,7 @@ export const SendMoney = () => {
                     <button
                     onClick={async()=>{
                         try{
-                            const response=await axios.post("https://payments-app-api-two.vercel.app/api/v1/account/transfer",{
+                            const response=await axios.post("https://payments-app-nab7.onrender.com/api/v1/account/transfer",{
                             amount:amount,
                             to:id,
                         },{
@@ -50,9 +50,6 @@ export const SendMoney = () => {
                         })
                         if(response.status==200){
                             alert("Payment Successfull !!")}
-                        // }else if(response.status==400){
-                        //     alert("Insufficient balance")
-                        // }
                         }catch(error){
                             if(error.response.status==400){
                                 alert("Insufficient balance")

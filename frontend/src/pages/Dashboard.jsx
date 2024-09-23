@@ -4,10 +4,11 @@ import { Balance } from "../components/Balance";
 import { Users } from "../components/Users";
 import axios from "axios";
 export function Dashboard(){
-    useEffect(() => {
+    const [balance, setBalance] = useState(0);
+    useEffect(() => {        
         const fetchData = async () => {
             try {
-                const response = await axios.get("https://payments-app-api-two.vercel.app/api/v1/account/balance", {
+                const response = await axios.get("https://payments-app-nab7.onrender.com/api/v1/account/balance", {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`
                     }
@@ -20,7 +21,6 @@ export function Dashboard(){
     
         fetchData();
     }, []);
-    
     
     return(
         <>
