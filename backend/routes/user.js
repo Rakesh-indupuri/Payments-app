@@ -3,9 +3,8 @@ const { signupSchema, updateBody } = require("../types")
 const { User, Account } = require("../db")
 const jwt=require("jsonwebtoken")
 const router=express.Router()
-const key=require("../config")
+const key=process.env.JWT_KEY
 const { authMiddleware } = require("../middleware")
-
 router.post("/signup",async (req,res)=>{
     const userData=req.body
     const parseData=signupSchema.safeParse(userData)
@@ -64,10 +63,6 @@ router.put("/",authMiddleware,async (req,res)=>{
             msg:"Error while updating the info."
         })
     }
-    // await User.updateOne(data,{id:req.userId})
-    // res.json({
-    //     msg:"Updated successfully"
-    // })
     const updatedUser= await User.findByIdAndUpdate(req.userId,{$set:data},{new:true})
     if (!updatedUser) {
         return res.status(404).json({
