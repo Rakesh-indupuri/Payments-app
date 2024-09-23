@@ -1,6 +1,16 @@
-const mongoose=require("mongoose");
-const url=process.env.url
-mongoose.connect(url)
+const mongoose = require("mongoose");
+require('dotenv').config();
+const url = process.env.url;
+if (!url) {
+  console.error("MongoDB URL is not defined in environment variables.");
+  process.exit(1);
+}
+mongoose.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => console.log('MongoDB connected successfully!'))
+.catch((error) => console.error('MongoDB connection error:', error));
 const userSchema=mongoose.Schema({
     username:String,
     firstName:String,
